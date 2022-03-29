@@ -300,33 +300,33 @@ const questions = [
   
   afficheAnswer();
   
-  // next.addEventListener('click', function () {
-  //   if (i < questions.length) {
-  //     if (questions[i].typeQuestion === 'choix') {
-  //       if (getRadioValue() === undefined) return;
-  //       questions[i].reponse = getRadioValue();
-  //       data.push(questions[i].reponse);
-  //     }
+  next.addEventListener('click', function () {
+    if (i < questions.length) {
+      if (questions[i].typeQuestion === 'choix') {
+        if (getRadioValue() === undefined) return;
+        questions[i].reponse = getRadioValue();
+        data.push(questions[i].reponse);
+      }
   
-  //     if (questions[i].typeQuestion === 'text') {
-  //       if (getNumberValue() === '') return;
-  //       console.log(getNumberValue());
-  //       questions[i].reponse = getNumberValue();
-  //       data.push(questions[i].reponse);
-  //     }
+      if (questions[i].typeQuestion === 'text') {
+        if (getNumberValue() === '') return;
+        console.log(getNumberValue());
+        questions[i].reponse = getNumberValue();
+        data.push(questions[i].reponse);
+      }
   
-  //     i++;
-  //     if (i < questions.length) {
-  //       afficheAnswer();
-  //     }
-  //   } else {
-  //     console.log('display the result');
-  //     let message = getResult(questions);
-  //     console.log('the result is ' + message);
-  //     displayResultInDom(message);
-  //   }
-  //   //console.log(data)
-  // });
+      i++;
+      if (i < questions.length) {
+        afficheAnswer();
+      }
+    } else {
+      console.log('display the result');
+      let message = getResult(questions);
+      console.log('the result is ' + message);
+      displayResultInDom(message);
+    }
+    //console.log(data)
+  });
   
   // /**
   //  * this should take the message and insert in the dom
