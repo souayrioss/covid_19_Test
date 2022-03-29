@@ -328,169 +328,169 @@ const questions = [
     //console.log(data)
   });
   
-  // /**
-  //  * this should take the message and insert in the dom
-  //  * TODO:: hassan
-  //  * @param  message
-  //  */
-  // function displayResultInDom(message) {
-  //   document.querySelector('.test__content').innerHTML = `<div class="result">
-  //   <h3 class="result__title">Résultat</h3>
-  //   <p class="result__message">وحال واش فيك فيروس كورونا، إذا عندك شك اتصل بالطبيب ديالك. تقد تعاود الإختبار لكانوا عندك اعراض اخرى. لبغيتي تعرف اكثر على الڤيروس ممكن تشوف صفحة النصائح</p>
-  //   <p class="result__footer">Restez chez vous au maximum en attendant que les symptômes disparaissent. Prenez votre température deux fois par jour. Rappel des mesures d’hygiène.</p>
-  //   <a class="restart-test-btn" href="test.html">Recommencer le test</a>
-  //   </div>`;
-  // }
+  /**
+   * this should take the message and insert in the dom
+   * TODO:: hassan
+   * @param  message
+   */
+  function displayResultInDom(message) {
+    document.querySelector('.test__content').innerHTML = `<div class="result">
+    <h3 class="result__title">Résultat</h3>
+    <p class="result__message">وحال واش فيك فيروس كورونا، إذا عندك شك اتصل بالطبيب ديالك. تقد تعاود الإختبار لكانوا عندك اعراض اخرى. لبغيتي تعرف اكثر على الڤيروس ممكن تشوف صفحة النصائح</p>
+    <p class="result__footer">Restez chez vous au maximum en attendant que les symptômes disparaissent. Prenez votre température deux fois par jour. Rappel des mesures d’hygiène.</p>
+    <a class="restart-test-btn" href="test.html">Recommencer le test</a>
+    </div>`;
+  }
   
-  // precedent.addEventListener('click', function () {
-  //   if (i > 0) {
-  //     i--;
-  //   }
-  //   afficheAnswer();
-  // });
+  precedent.addEventListener('click', function () {
+    if (i > 0) {
+      i--;
+    }
+    afficheAnswer();
+  });
   
-  // ///////start testing results
-  // const getFactGravMin = (symptomps) => {
-  //   let fact = 0;
-  //   if (symptomps.feverDeg >= 39) fact++;
-  //   if (symptomps.anorexia) fact++;
-  //   if (symptomps.disconfort) fact++;
-  //   return fact;
-  // };
-  // const getFactGravMaj = (symptomps) => {
-  //   let fact = 0;
-  //   if (symptomps.dyspanea) fact++;
-  //   if (symptomps.anorexia) fact++;
-  //   if (symptomps.feverDeg <= 35.4) fact++;
-  //   return fact;
-  // };
-  // const getPronoFact = (poorPronoFact) => {
-  //   if (
-  //     poorPronoFact.age >= 70 ||
-  //     poorPronoFact.imc >= 30 ||
-  //     poorPronoFact.pregnancy ||
-  //     poorPronoFact.breathingIllness ||
-  //     poorPronoFact.cancer ||
-  //     poorPronoFact.chronicLiverDisease ||
-  //     poorPronoFact.chronicRenalFailure ||
-  //     poorPronoFact.diabetes ||
-  //     poorPronoFact.heartDisease ||
-  //     poorPronoFact.immuneSystemDisease ||
-  //     poorPronoFact.immunosuppressiveTherapy
-  //   ) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // };
+  ///////start testing results
+  const getFactGravMin = (symptomps) => {
+    let fact = 0;
+    if (symptomps.feverDeg >= 39) fact++;
+    if (symptomps.anorexia) fact++;
+    if (symptomps.disconfort) fact++;
+    return fact;
+  };
+  const getFactGravMaj = (symptomps) => {
+    let fact = 0;
+    if (symptomps.dyspanea) fact++;
+    if (symptomps.anorexia) fact++;
+    if (symptomps.feverDeg <= 35.4) fact++;
+    return fact;
+  };
+  const getPronoFact = (poorPronoFact) => {
+    if (
+      poorPronoFact.age >= 70 ||
+      poorPronoFact.imc >= 30 ||
+      poorPronoFact.pregnancy ||
+      poorPronoFact.breathingIllness ||
+      poorPronoFact.cancer ||
+      poorPronoFact.chronicLiverDisease ||
+      poorPronoFact.chronicRenalFailure ||
+      poorPronoFact.diabetes ||
+      poorPronoFact.heartDisease ||
+      poorPronoFact.immuneSystemDisease ||
+      poorPronoFact.immunosuppressiveTherapy
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   
-  // /**
-  //  *
-  //  * @param data :object
-  //  * @returns string : text representing the messag eto show to the user based on the given data
-  //  */
-  // const getResult = (data) => {
-  //   data = data.map((q) => {
-  //     q.reponse = q.reponse.toLowerCase();
-  //     return q;
-  //   });
+  /**
+   *
+   * @param data :object
+   * @returns string : text representing the messag eto show to the user based on the given data
+   */
+  const getResult = (data) => {
+    data = data.map((q) => {
+      q.reponse = q.reponse.toLowerCase();
+      return q;
+    });
   
-  //   const OUI = 'oui';
-  //   let symptoms = {
-  //     fever: data[0].response == OUI,
-  //     feverDeg: data[1].response,
-  //     cough: data[2].response == OUI,
-  //     muscularPain: data[3].response == OUI,
-  //     soreThroat: data[4].response == OUI,
-  //     diarrhea: data[5].response == OUI,
-  //     tiredness: data[6].response == OUI,
-  //     dyspanea: data[16].response == OUI || data[8].response == OUI,
-  //     anorexia: data[7].response == OUI,
-  //     disconfort:
-  //       data[9].response == data[9].choix[2] ||
-  //       data[9].response == data[9].choix[3],
-  //   };
+    const OUI = 'oui';
+    let symptoms = {
+      fever: data[0].response == OUI,
+      feverDeg: data[1].response,
+      cough: data[2].response == OUI,
+      muscularPain: data[3].response == OUI,
+      soreThroat: data[4].response == OUI,
+      diarrhea: data[5].response == OUI,
+      tiredness: data[6].response == OUI,
+      dyspanea: data[16].response == OUI || data[8].response == OUI,
+      anorexia: data[7].response == OUI,
+      disconfort:
+        data[9].response == data[9].choix[2] ||
+        data[9].response == data[9].choix[3],
+    };
   
-  //   let poorPronoFact = {
-  //     imc: data[11].reponse / Math.pow(data[12].reponse, 2), // poids(kg)/taille^2
-  //     heartDisease: data[13].reponse == OUI,
-  //     diabetes: data[14].reponse == OUI,
-  //     cancer: data[15].reponse == OUI,
-  //     breathingIllness: data[16].reponse == OUI,
-  //     chronicRenalFailure: data[17].reponse == OUI,
-  //     chronicLiverDisease: data[18].reponse == OUI,
-  //     pregnancy: data[19].reponse == OUI,
-  //     immuneSystemDisease: data[20].reponse == OUI,
-  //     immunosuppressiveTherapy: data[21].reponse == OUI,
-  //   };
+    let poorPronoFact = {
+      imc: data[11].reponse / Math.pow(data[12].reponse, 2), // poids(kg)/taille^2
+      heartDisease: data[13].reponse == OUI,
+      diabetes: data[14].reponse == OUI,
+      cancer: data[15].reponse == OUI,
+      breathingIllness: data[16].reponse == OUI,
+      chronicRenalFailure: data[17].reponse == OUI,
+      chronicLiverDisease: data[18].reponse == OUI,
+      pregnancy: data[19].reponse == OUI,
+      immuneSystemDisease: data[20].reponse == OUI,
+      immunosuppressiveTherapy: data[21].reponse == OUI,
+    };
   
-  //   const factGravMin = getFactGravMin(symptoms);
-  //   const factGravMaj = getFactGravMaj(symptoms);
-  //   const hasfFactProno = getPronoFact(poorPronoFact);
+    const factGravMin = getFactGravMin(symptoms);
+    const factGravMaj = getFactGravMaj(symptoms);
+    const hasfFactProno = getPronoFact(poorPronoFact);
   
-  //   if (
-  //     symptoms.fever ||
-  //     (symptoms.cough && symptoms.soreThroat) ||
-  //     (symptoms.cough && symptoms.muscularPain) ||
-  //     (symptoms.fever && symptoms.diarrhea)
-  //   ) {
-  //     if (factGravMaj > 0) {
-  //       return 'خصك تعيط ل 141';
-  //     } else if (!hasfFactProno) {
-  //       if (poorPronoFact.age < 50 && factGravMin === 0) {
-  //         return 'تنوصيوك باش تبقى فدارك و تتصل بطبيبك إذا بانت شي أعراض أخرى . وتقد فاي وقت تعاود الإختبار باش طمن على راسك';
-  //       }
-  //       if (
-  //         (poorPronoFact.age > 50 &&
-  //           poorPronoFact.age < 70 &&
-  //           factGravMin === 0) ||
-  //         factGravMin > 0
-  //       ) {
-  //         return (
-  //           'تقد تشاور مع طبيب فالتيليفون او يزورك طبيب فالدار' +
-  //           '\nإذا كان عندك صعوبة فالتنفس او مقديتيش تاكل مزيان او تشرب لكثر من 24 ساعة ضروري اتصل ب 141'
-  //         );
-  //       }
-  //     } else {
-  //       if (factGravMin <= 1) {
-  //         return (
-  //           'تقد تشاور مع طبيب فالتيليفون او يزورك طبيب فالدار' +
-  //           '\nإذا كان عندك صعوبة فالتنفس او مقديتيش تاكل مزيان او تشرب لكثر من 24 ساعة ضروري اتصل ب 141'
-  //         );
-  //       } else {
-  //         return 'خصك تعيط ل 141';
-  //       }
-  //     }
-  //   } else if (symptoms.fever && symptoms.cough) {
-  //     if (factGravMaj > 0) {
-  //       return 'خصك تعيط ل 141';
-  //     } else if (!hasfFactProno) {
-  //       return (
-  //         'تقد تشاور مع طبيب فالتيليفون او يزورك طبيب فالدار' +
-  //         '\nإذا كان عندك صعوبة فالتنفس او مقديتيش تاكل مزيان او تشرب لكثر من 24 ساعة ضروري اتصل ب 141'
-  //       );
-  //     } else {
-  //       if (factGravMin <= 1) {
-  //         return (
-  //           'تقد تشاور مع طبيب فالتيليفون او يزورك طبيب فالدار' +
-  //           '\nإذا كان عندك صعوبة فالتنفس او مقديتيش تاكل مزيان او تشرب لكثر من 24 ساعة ضروري اتصل ب 141'
-  //         );
-  //       } else {
-  //         return 'خصك تعيط ل 141';
-  //       }
-  //     }
-  //   } else if (
-  //     symptoms.fever ||
-  //     symptoms.cough ||
-  //     symptoms.soreThroat ||
-  //     symptoms.muscularPain
-  //   ) {
-  //     if (factGravMaj === 0 && factGravMin === 0) {
-  //       return 'موحال واش فيك فيروس كورونا، ولكن إلى شكيتي ممكن تتصل بطبيب ديالك';
-  //     } else if (factGravMin > 0 || factGravMaj > 0 || hasfFactProno) {
-  //       return 'موحال واش فيك فيروس كورونا ؛ تنصحوك تشاور مع طبيب. وإلى شكيتي اتصل ب 141';
-  //     }
-  //   } else {
-  //     return 'موحال واش فيك فيروس كورونا، إذا عندك شك اتصل بالطبيب ديالك. تقد تعاود الإختبار لكانوا عندك اعراض اخرى. لبغيتي تعرف اكثر على الڤيروس ممكن تشوف صفحة النصائح';
-  //   }
-  // };
+    if (
+      symptoms.fever ||
+      (symptoms.cough && symptoms.soreThroat) ||
+      (symptoms.cough && symptoms.muscularPain) ||
+      (symptoms.fever && symptoms.diarrhea)
+    ) {
+      if (factGravMaj > 0) {
+        return 'خصك تعيط ل 141';
+      } else if (!hasfFactProno) {
+        if (poorPronoFact.age < 50 && factGravMin === 0) {
+          return 'تنوصيوك باش تبقى فدارك و تتصل بطبيبك إذا بانت شي أعراض أخرى . وتقد فاي وقت تعاود الإختبار باش طمن على راسك';
+        }
+        if (
+          (poorPronoFact.age > 50 &&
+            poorPronoFact.age < 70 &&
+            factGravMin === 0) ||
+          factGravMin > 0
+        ) {
+          return (
+            'تقد تشاور مع طبيب فالتيليفون او يزورك طبيب فالدار' +
+            '\nإذا كان عندك صعوبة فالتنفس او مقديتيش تاكل مزيان او تشرب لكثر من 24 ساعة ضروري اتصل ب 141'
+          );
+        }
+      } else {
+        if (factGravMin <= 1) {
+          return (
+            'تقد تشاور مع طبيب فالتيليفون او يزورك طبيب فالدار' +
+            '\nإذا كان عندك صعوبة فالتنفس او مقديتيش تاكل مزيان او تشرب لكثر من 24 ساعة ضروري اتصل ب 141'
+          );
+        } else {
+          return 'خصك تعيط ل 141';
+        }
+      }
+    } else if (symptoms.fever && symptoms.cough) {
+      if (factGravMaj > 0) {
+        return 'خصك تعيط ل 141';
+      } else if (!hasfFactProno) {
+        return (
+          'تقد تشاور مع طبيب فالتيليفون او يزورك طبيب فالدار' +
+          '\nإذا كان عندك صعوبة فالتنفس او مقديتيش تاكل مزيان او تشرب لكثر من 24 ساعة ضروري اتصل ب 141'
+        );
+      } else {
+        if (factGravMin <= 1) {
+          return (
+            'تقد تشاور مع طبيب فالتيليفون او يزورك طبيب فالدار' +
+            '\nإذا كان عندك صعوبة فالتنفس او مقديتيش تاكل مزيان او تشرب لكثر من 24 ساعة ضروري اتصل ب 141'
+          );
+        } else {
+          return 'خصك تعيط ل 141';
+        }
+      }
+    } else if (
+      symptoms.fever ||
+      symptoms.cough ||
+      symptoms.soreThroat ||
+      symptoms.muscularPain
+    ) {
+      if (factGravMaj === 0 && factGravMin === 0) {
+        return 'موحال واش فيك فيروس كورونا، ولكن إلى شكيتي ممكن تتصل بطبيب ديالك';
+      } else if (factGravMin > 0 || factGravMaj > 0 || hasfFactProno) {
+        return 'موحال واش فيك فيروس كورونا ؛ تنصحوك تشاور مع طبيب. وإلى شكيتي اتصل ب 141';
+      }
+    } else {
+      return 'موحال واش فيك فيروس كورونا، إذا عندك شك اتصل بالطبيب ديالك. تقد تعاود الإختبار لكانوا عندك اعراض اخرى. لبغيتي تعرف اكثر على الڤيروس ممكن تشوف صفحة النصائح';
+    }
+  };
