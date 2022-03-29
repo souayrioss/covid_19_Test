@@ -248,11 +248,11 @@ const questions = [
   //   // })
   // }
   
-  // function afficheProgress() {
-  //   let prg = (i + 1) / questions.length;
-  //   progress.style.width = prg * 100 + '%';
-  //   numberQuestion.textContent = i + 1 + '/22';
-  // }
+  function afficheProgress() {
+    let prg = (i + 1) / questions.length;
+    progress.style.width = prg * 100 + '%';
+    numberQuestion.textContent = i + 1 + '/22';
+  }
   
   function afficheAnswer() {
     afficheProgress();
