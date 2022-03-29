@@ -230,16 +230,16 @@ const questions = [
   let i = 0;
   let data = [];
   
-  // function getRadioValue() {
-  //   let res;
-  //   for (let i = 0; i < radios.length; i++) {
-  //     if (radios[i].checked) {
-  //       res = radios[i].value;
-  //       break;
-  //     }
-  //   }
-  //   return res;
-  // }
+  function getRadioValue() {
+    let res;
+    for (let i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        res = radios[i].value;
+        break;
+      }
+    }
+    return res;
+  }
   
   // function getNumberValue() {
   //   // input.addEventListener('mouseup' , function(){
