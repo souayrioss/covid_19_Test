@@ -241,12 +241,12 @@ const questions = [
     return res;
   }
   
-  // function getNumberValue() {
-  //   // input.addEventListener('mouseup' , function(){
-  //   input.setAttribute('value', input.value);
-  //   return input.value;
-  //   // })
-  // }
+  function getNumberValue() {
+    // input.addEventListener('mouseup' , function(){
+    input.setAttribute('value', input.value);
+    return input.value;
+    // })
+  }
   
   function afficheProgress() {
     let prg = (i + 1) / questions.length;
