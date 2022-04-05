@@ -324,16 +324,19 @@ next.addEventListener('click', function () {
     }
 
     i++;
-    if (i < questions.length) {
-      afficheAnswer();
+    afficheAnswer();
+
+  } else { 
+    
+    if(i == questions.length){
+    next.textContent = "Affiche resultat";
     }
-  } else {
     console.log('display the result');
-    let message = getResult(questions);
+    let message = getResult(data);
     console.log('the result is ' + message);
     displayResultInDom(message);
   }
-  console.log(data)
+  console.log(i)
 });
 
 precedent.addEventListener('click', function () {
@@ -355,7 +358,7 @@ function displayResultInDom(message) {
   activecer[2].className= "test__item active";
   document.querySelector('.test__content').innerHTML = `<div class="result">
   <h3 class="result__title">Résultat</h3>
-  <p class="result__message">${message}</p>
+  <p class="result__message fs-2 fw-bold text-danger">${message}</p>
   <p class="result__footer">Restez chez vous au maximum en attendant que les symptômes disparaissent. Prenez votre température deux fois par jour. Rappel des mesures d’hygiène.</p>
   <a class="restart-test-btn" href="test.html">Recommencer le test</a>
   </div>`;
@@ -404,37 +407,37 @@ const getPronoFact = (poorPronoFact) => {
  */
 const getResult = (data) => {
   data = data.map((q) => {
-    q.reponse = q.reponse.toLowerCase();
+    q = q.toLowerCase();
     return q;
   });
 
   const OUI = 'oui';
   let symptoms = {
-    fever: data[0].response == OUI,
-    feverDeg: data[1].response,
-    cough: data[2].response == OUI,
-    muscularPain: data[3].response == OUI,
-    soreThroat: data[4].response == OUI,
-    diarrhea: data[5].response == OUI,
-    tiredness: data[6].response == OUI,
-    dyspanea: data[16].response == OUI || data[8].response == OUI,
-    anorexia: data[7].response == OUI,
+    fever: data[0] == OUI,
+    feverDeg: data[1],
+    cough: data[2] == OUI,
+    muscularPain: data[3]== OUI,
+    soreThroat: data[4] == OUI,
+    diarrhea: data[5]== OUI,
+    tiredness: data[6] == OUI,
+    dyspanea: data[16] == OUI || data[8] == OUI,
+    anorexia: data[7] == OUI,
     disconfort:
-      data[9].response == data[9].choix[2] ||
-      data[9].response == data[9].choix[3],
+      data[9] == 'Fatigué(e)' ||
+      data[9]  == 'Trés fatigué(e)',
   };
 
   let poorPronoFact = {
-    imc: data[11].reponse / Math.pow(data[12].reponse, 2), // poids(kg)/taille^2
-    heartDisease: data[13].reponse == OUI,
-    diabetes: data[14].reponse == OUI,
-    cancer: data[15].reponse == OUI,
-    breathingIllness: data[16].reponse == OUI,
-    chronicRenalFailure: data[17].reponse == OUI,
-    chronicLiverDisease: data[18].reponse == OUI,
-    pregnancy: data[19].reponse == OUI,
-    immuneSystemDisease: data[20].reponse == OUI,
-    immunosuppressiveTherapy: data[21].reponse == OUI,
+    imc: data[11] / Math.pow(data[12], 2), // poids(kg)/taille^2
+    heartDisease: data[13] == OUI,
+    diabetes: data[14] == OUI,
+    cancer: data[15] == OUI,
+    breathingIllness: data[16] == OUI,
+    chronicRenalFailure: data[17] == OUI,
+    chronicLiverDisease: data[18] == OUI,
+    pregnancy: data[19] == OUI,
+    immuneSystemDisease: data[20] == OUI,
+    immunosuppressiveTherapy: data[21] == OUI,
   };
 
   const factGravMin = getFactGravMin(symptoms);
